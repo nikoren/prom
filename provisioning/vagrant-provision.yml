@@ -1,0 +1,9 @@
+---
+
+- name: Provision vagrant
+  hosts: all
+  become: yes
+  roles:
+#    - common
+#    - docker_ce
+    - docker-compose

@@ -1,0 +1,4 @@
+{
+  "metrics-addr" : "{{ docker_ce_ipaddress }}:{{ docker_ce_port }}",
+  "experimental" : true
+}

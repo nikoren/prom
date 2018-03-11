@@ -1,0 +1,19 @@
+- name: Download docker-compose
+  shell: >
+    curl -L https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-`uname -s`-`uname -m`
+    -o {{ docker_compose_executable }}
+  args:
+    creates: "/usr/local/bin/docker-compose"
+
+- name: Set docker compose permissions
+  file:
+    path:  "{{ docker_compose_executable }}"
+    mode: "0550"
+    group: docker
+
+- name: Generate alertmanager config
+  template:
+    src: ../alertmanager/alertmanager.yml.j2
+    dest: /vagrant/alertmanager/alertmanager.yml
+
+

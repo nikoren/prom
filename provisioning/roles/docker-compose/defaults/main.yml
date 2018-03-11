@@ -1,0 +1,2 @@
+docker_compose_executable: "/usr/local/bin/docker-compose"
+docker_compose_version: "1.19.0"

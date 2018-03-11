@@ -1,0 +1,30 @@
+global:
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: "{{ alertmanager_auth_username }}"
+
+# The root route on which each incoming alert enters.
+route:
+  receiver: "{{ alertmanager_auth_username.split('@')[0] }}"
+  group_by: ['alertname', 'cluster']
+  group_wait: 30s
+  group_interval: 1m
+  repeat_interval: 2m
+
+
+inhibit_rules:
+- source_match:
+    severity: 'critical'
+  target_match:
+    severity: 'warning'
+  equal: ['alertname']
+
+
+receivers:
+  - name: "{{ alertmanager_auth_username.split('@')[0]  }}"
+    email_configs:
+    - to: "{{ alertmanager_to }}"
+      auth_username: "{{ alertmanager_auth_username }}"
+      auth_identity: "{{ alertmanager_auth_username }}"
+      auth_password: "{{ alertmanager_auth_pass }}"
+      headers: { 'CC': 'nikoren@gmail.com'}
+

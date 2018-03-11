@@ -1,0 +1,6 @@
+.idea
+.tmux.conf
+.vagrant
+*sensitive.*
+alertmanager.yml
+*.retry
