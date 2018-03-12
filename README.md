@@ -4,7 +4,7 @@
 - This project consist of 3 docker images:
     - `node`: service that generates cpu/io/memory/network loading and extracts metrics via HTTP
     - `prometheus`:   monitoring service that scrapes `node` service and saves results as time series
-    - `alertmanager`:  manages and sends alerts when on of mesured valuse doesn't meet certain value 
+    - `alertmanager`:  manages and sends alerts when one of measured values meets some condition (per rules)
 
 ### Pre-requisites
 - To run this project you should have following software installed on your computer
