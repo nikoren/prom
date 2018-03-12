@@ -2,15 +2,15 @@
 ### Introduction
 
 - This project consist of 3 docker images:
-    - node: service that generates cpu/io/memory/network loading and extracts metrics via HTTP
-    - prometheus:   monitoring service that scrapes `node` service and saves results as time series
-    - alertmanager:  manages and sends alerts when on of mesured valuse doesn't meet certain value 
+    - `node`: service that generates cpu/io/memory/network loading and extracts metrics via HTTP
+    - `prometheus`:   monitoring service that scrapes `node` service and saves results as time series
+    - `alertmanager`:  manages and sends alerts when on of mesured valuse doesn't meet certain value 
 
 ### Pre-requisites
 - To run this project you should have following software installed on your computer
 
     - [Ansible](https://www.ansible.com/)
-    - [Vagrant](https://www.vagrantup.com/) -
+    - [Vagrant](https://www.vagrantup.com/)
     - [docker enging](https://www.docker.com/) [Optional - for local testing]
     - [docker-compose](https://docs.docker.com/compose/) [Optional - for local testing]
 
@@ -23,7 +23,7 @@ git clone git@github.com:nikoren/prom.git
 cd prom
 ```
 
-- Export some variable to be able to send alerts with GMAIL account
+- Export variables to be able to send alerts with GMAIL account
 
 ```bash
 export GMAIL_TO='some_destination_address@gmail.com'
@@ -60,15 +60,15 @@ docker-compose up
 - Vagrantfile is configured to pick those variables and present them to ansible-playbook as  extra variables
 
 ```bash
-
 git clone git@github.com:nikoren/prom.git
 cd prom
-
+export GMAIL_TO=take-home-test@league.pagerduty.com 
 export GMAIL_PASS='your_password' # Nice article if you need help to generate one: https://www.lifewire.com/get-a-password-to-access-gmail-by-pop-imap-2-1171882                      
 export GMAIL_ACCOUNT='your_gmail_account_username@gmail.com'
 vagrant up 
 # Zzz...you done
 ```
+
 - Vagrant configured to redirect ports to your local environment, just be sure you 
   are not running local and vagrant at the same time to avoid port collisions anc confusion
 
