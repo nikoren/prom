@@ -69,10 +69,13 @@ vagrant up
 # Zzz...you done
 ```
 
+### Ports 
+
 - Vagrant configured to redirect ports to your local environment, just be sure you 
   are not running local and vagrant at the same time to avoid port collisions anc confusion
-
-
+    - node: 9100
+    - prometheus: 9090
+    - alertmanager: 9093
 
 ### Metrics
 
