@@ -11,8 +11,8 @@
 
     - [Ansible](https://www.ansible.com/)
     - [Vagrant](https://www.vagrantup.com/)
-    - [docker enging](https://www.docker.com/) [Optional - for local testing]
-    - [docker-compose](https://docs.docker.com/compose/) [Optional - for local testing]
+    - [docker engine](https://www.docker.com/) [Optional, for local testing]
+    - [docker-compose](https://docs.docker.com/compose/) [Optional, for local testing]
 
 ### Running on your machine(mac/linux):
 
@@ -81,7 +81,7 @@ vagrant up
 
 - [CPU](http://localhost:9090/graph?g0.range_input=1h&g0.expr=100%20-%20(avg%20by%20(instance)%20(irate(node_cpu_seconds_total%7Bjob%3D%22node%22%2Cmode%3D%22idle%22%7D%5B3m%5D))%20*%20100)&g0.tab=0)
 
-```promql
+```
 # HELP node_cpu Seconds the cpus spent in each mode.
 # TYPE node_cpu counter
 100 - (avg by (instance) (irate(node_cpu_seconds_total{job="node",mode="idle"}[3m])) * 100)
