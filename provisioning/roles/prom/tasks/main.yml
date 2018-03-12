@@ -1,0 +1,16 @@
+- name: Build the services
+  shell: "cd /vagrant && docker-compose build"
+  become: yes
+  become_user: vagrant
+
+- name: Set as a systemd service
+  copy:
+    src: prom.service
+    dest: /etc/systemd/system/
+
+- name: Start service
+  systemd:
+    name: prom
+    enabled: yes
+    state: started
+

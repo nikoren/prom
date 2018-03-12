@@ -6,4 +6,5 @@
   roles:
 #    - common
 #    - docker_ce
-    - docker-compose
+#    - docker-compose
+    - prom

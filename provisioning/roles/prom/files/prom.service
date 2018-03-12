@@ -1,0 +1,19 @@
+[Unit]
+Description=%i with docker-compose
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+Type=simple
+User=vagrant
+WorkingDirectory=/vagrant
+ExecStart=/usr/local/bin/docker-compose up
+ExecStop=/usr/local/bin/docker-compose down
+ExecReload=/usr/local/bin/docker-compose build --quiet
+ExecReload=/usr/local/bin/docker-compose up
+
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
