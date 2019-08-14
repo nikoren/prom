@@ -13,7 +13,7 @@ alertmanager_to = ENV['GMAIL_TO']
     config.ssh.forward_agent = true
   end
 
-  config.vm.box = "bento/centos-7.2"
+  config.vm.box = "bento/centos-7.6"
   config.vm.network :private_network, ip: "10.0.99.4"
   config.vm.network "forwarded_port", guest: 9090, host: 9090
   config.vm.network "forwarded_port", guest: 9100, host: 9100

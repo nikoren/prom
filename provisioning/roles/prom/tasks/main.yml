@@ -1,3 +1,8 @@
+- name: Generate alertmanager config
+  template:
+    src: ../alertmanager/alertmanager.yml.j2
+    dest: /vagrant/alertmanager/alertmanager.yml
+
 - name: Build the services
   shell: "cd /vagrant && docker-compose build"
   become: yes
@@ -13,4 +18,3 @@
     name: prom
     enabled: yes
     state: started
-

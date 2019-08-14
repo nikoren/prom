@@ -11,32 +11,30 @@
 
 - name: Install Administration tools
   yum:
-    name: "{{ item }}"
+    name:
+      - htop
+      - tmux
+      - google-cloud-sdk
+      - unzip
+      - wget
+      - vim
+      - tar
+      - xz
+      - mlocate
+      - git
+      - bash-completion
+      - bash-completion-extras
+      - libselinux-python
+      - ntp
+      - python-pip
     state: latest
-  with_items:
-    - htop
-    - tmux
-    - google-cloud-sdk
-    - unzip
-    - wget
-    - vim
-    - tar
-    - xz
-    - mlocate
-    - git
-    - bash-completion
-    - bash-completion-extras
-    - libselinux-python
-    - ntp
-    - python-pip
 
 - name: Install global python packages
   pip:
-    name: "{{item}}"
-  with_items:
-    - virtualenv
-    - requests
-    - pyyaml
+    name:
+      - virtualenv
+      - requests
+      - pyyaml
 
 - name: Update files db
   shell: updatedb
